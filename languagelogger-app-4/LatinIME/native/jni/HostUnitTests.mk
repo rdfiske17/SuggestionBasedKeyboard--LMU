@@ -37,7 +37,7 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/$(LATIN_IME_SRC_DIR)
 LOCAL_MODULE := liblatinime_host_static_for_unittests
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := $(addprefix $(LATIN_IME_SRC_DIR)/, $(LATIN_IME_CORE_SRC_FILES))
-include $(BUILD_HOST_STATIC_LIBRARY)
+include $(BUILD_STATIC_LIBRARY)
 
 #################### Host native tests
 include $(CLEAR_VARS)

@@ -34,8 +34,8 @@ public class ApplicationController extends SugarApp {
             // Create the NotificationChannel, but only on API 26+ because
             // the NotificationChannel class is new and not in the support library
 
-            CharSequence name = context.getString(R.string.app_name);
-            String description = context.getString(R.string.app_name);
+            CharSequence name = context.getString(com.android.inputmethod.latin.R.string.app_name);
+            String description = context.getString(com.android.inputmethod.latin.R.string.app_name);
 
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, name, importance);

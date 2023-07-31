@@ -21,7 +21,8 @@ import android.media.AudioManager;
 import android.os.Build;
 import android.os.SystemClock;
 import android.provider.Settings;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
+//import android.support.v4.view.accessibility.AccessibilityEventCompat;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -222,7 +223,7 @@ public final class AccessibilityUtils {
         // Platforms starting at SDK version 16 (Build.VERSION_CODES.JELLY_BEAN) should use
         // announce events.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            event.setEventType(AccessibilityEventCompat.TYPE_ANNOUNCEMENT);
+            event.setEventType(AccessibilityEvent.TYPE_ANNOUNCEMENT);
         } else {
             event.setEventType(AccessibilityEvent.TYPE_VIEW_FOCUSED);
         }

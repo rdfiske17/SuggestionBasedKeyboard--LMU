@@ -16,7 +16,8 @@
 
 package de.lmu.ifi.researchime.recycler.binding;
 
-import android.support.annotation.LayoutRes;
+//import androidx.annotation.LayoutRes;
+import androidx.annotation.LayoutRes;
 
 public class CompositeItemBinder<T> implements ItemBinderInterface<T> {
 

@@ -17,7 +17,8 @@
 package de.lmu.ifi.researchime.data.messages.model;
 
 import androidx.databinding.BaseObservable;
-import android.databinding.ObservableArrayList;
+//import android.databinding.ObservableArrayList;
+import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
 
 import java.io.Serializable;

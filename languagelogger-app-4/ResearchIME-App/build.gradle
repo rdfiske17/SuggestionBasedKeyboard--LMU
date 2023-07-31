@@ -12,6 +12,9 @@ android {
         versionCode project.versionCode
         versionName project.versionName
         vectorDrawables.useSupportLibrary true
+        ndk {
+            //abiFilters 'armeabi-v7a', 'x86'
+        }
     }
 
     buildTypes {
@@ -42,4 +45,4 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:23.1.1'
 }
 
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'

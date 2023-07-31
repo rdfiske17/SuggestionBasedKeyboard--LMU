@@ -22,8 +22,10 @@ import android.content.Intent;
 import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.widget.SwipeRefreshLayout;
+//import android.support.design.widget.Snackbar;
+import com.google.android.material.snackbar.Snackbar;
+//import android.support.v4.widget.SwipeRefreshLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -143,7 +145,7 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void loadSwipeRefresh() {
-        binding.swipeRefresh.setColorSchemeResources(R.color.colorAccent);
+        binding.swipeRefresh.setColorSchemeResources(de.lmu.ifi.researchime.base.R.color.colorAccent);
         binding.swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -189,7 +191,16 @@ public class DashboardActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()){
+        if(item.getItemId() == R.id.send_message) {
+            toggleMessaging();
+        }
+        else if (item.getItemId() == R.id.settings) {
+            showSettings();
+        }
+        else if (item.getItemId() == R.id.info) {
+            showInfo();
+        }
+        /*switch(item.getItemId()){
             case R.id.send_message:
                 toggleMessaging();
                 break;
@@ -199,7 +210,7 @@ public class DashboardActivity extends AppCompatActivity {
             case R.id.info:
                 showInfo();
                 break;
-        }
+        }*/
         return true;
     }
 

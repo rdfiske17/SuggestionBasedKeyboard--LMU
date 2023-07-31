@@ -17,7 +17,8 @@
 package de.lmu.ifi.researchime.recycler.layout;
 
 import android.content.Context;
-import android.support.v7.widget.GridLayoutManager;
+//import android.support.v7.widget.GridLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CustomGridLayoutManager extends GridLayoutManager {
