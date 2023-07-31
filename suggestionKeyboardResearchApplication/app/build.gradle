@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace "de.lmu.ifi.suggestionkeyboardresearchapplication"
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "de.lmu.ifi.suggestionkeyboardresearchapplication"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Enable ViewBinding
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    // Add new dependencies
+    implementation "io.getstream:stream-chat-android-ui-components:5.12.0"
+    implementation "com.google.android.material:material:1.6.1"
+    implementation "androidx.activity:activity-ktx:1.5.1"
+    implementation "io.coil-kt:coil:2.1.0"
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
+    androidTestImplementation 'androidx.test:core:1.1.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'}

@@ -4,7 +4,8 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Environment;
-import android.support.v4.app.NotificationCompat;
+//import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 
 import java.io.BufferedWriter;
 import java.io.File;
