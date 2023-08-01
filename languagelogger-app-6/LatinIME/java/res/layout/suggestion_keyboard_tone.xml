@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/suggestion_keyboard_tone_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:orientation="vertical"
+    android:weightSum="6">
+
+    <LinearLayout
+        android:id="@+id/suggestion_keyboard_tone_row1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:layout_weight="2">
+
+        <ToggleButton
+            android:id="@+id/suggestion_keyboard_tone_r1c1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textOn="&#x1F600;Happy&#x1F600;"
+            android:textOff="&#x1F600;Happy&#x1F600;"
+            android:background="@drawable/button_happy_unselected"/>
+
+        <ToggleButton
+            android:id="@+id/suggestion_keyboard_tone_r1c2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textOn="&#x1F60D;Love&#x1F60D;"
+            android:textOff="&#x1F60D;Love&#x1F60D;"
+            android:background="@drawable/button_love_unselected"/>
+
+        <ToggleButton
+            android:id="@+id/suggestion_keyboard_tone_r1c3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textOn="&#x1F604;Enthusiastic&#x1F604;"
+            android:textOff="&#x1F604;Enthusiastic&#x1F604;"
+            android:background="@drawable/button_enthusiastic_unselected"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/suggestion_keyboard_tone_row2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:weightSum="6"
+        android:orientation="horizontal" >
+
+        <ToggleButton
+            android:id="@+id/suggestion_keyboard_tone_r2c1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textOn="&#x1F62E;Good Surprise&#x1F62E;"
+            android:textOff="&#x1F62E;Good Surprise&#x1F62E;"
+            android:background="@drawable/button_goodsurprise_unselected"/>
+
+        <ToggleButton
+            android:id="@+id/suggestion_keyboard_tone_r2c2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textOn="&#x1F610;Neutral&#x1F610;"
+            android:textOff="&#x1F610;Neutral&#x1F610;"
+            android:background="@drawable/button_neutral_unselected"/>
+
+        <ToggleButton
+            android:id="@+id/suggestion_keyboard_tone_r2c3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textOn="&#x1F631;Bad Surprise&#x1F631;"
+            android:textOff="&#x1F631;Bad Surprise&#x1F631;"
+            android:background="@drawable/button_badsurprise_unselected"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/suggestion_keyboard_tone_row3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:weightSum="6"
+        android:orientation="horizontal" >
+
+        <ToggleButton
+            android:id="@+id/suggestion_keyboard_tone_r3c1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textOn="&#x1F62D;Sad&#x1F62D;"
+            android:textOff="&#x1F62D;Sad&#x1F62D;"
+            android:background="@drawable/button_sad_unselected"/>
+
+        <ToggleButton
+            android:id="@+id/suggestion_keyboard_tone_r3c2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textOn="&#x1F620;Anger&#x1F620;"
+            android:textOff="&#x1F620;Anger&#x1F620;"
+            android:background="@drawable/button_anger_unselected"/>
+
+        <ToggleButton
+            android:id="@+id/suggestion_keyboard_tone_r3c3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textOn="&#x1F922;Disgust&#x1F922;"
+            android:textOff="&#x1F922;Disgust&#x1F922;"
+            android:background="@drawable/button_disgust_unselected"/>
+
+    </LinearLayout>
+
+</LinearLayout>
