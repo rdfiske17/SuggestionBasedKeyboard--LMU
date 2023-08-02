@@ -58,6 +58,7 @@ public class SuggestionModeKeyboardView extends LinearLayout {
 
     public static ArrayList<String> finalRelevantMessages = new ArrayList<String>();
     public static String finalTone = "";
+    public static String finalKeywords = "";
 
 
     public SuggestionModeKeyboardView(final Context context, final AttributeSet attrs) {

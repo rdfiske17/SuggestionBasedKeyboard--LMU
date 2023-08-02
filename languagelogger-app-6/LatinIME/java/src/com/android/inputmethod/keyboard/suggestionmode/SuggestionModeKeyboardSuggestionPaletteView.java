@@ -51,8 +51,8 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
             else { finalRelevantMessages = "\"" + string + "\""; }
             counter++;
         }
-        text1.setText("Final Relevant Messages: " + finalRelevantMessages + " \n" + "Final Relevant Tone: " + SuggestionModeKeyboardView.finalTone);
-        Log.i("SuggestionPalettes","Final Relevant Messages: " + finalRelevantMessages + " | Final Relevant Tone: " + SuggestionModeKeyboardView.finalTone);
+        text1.setText("Final Relevant Messages: " + finalRelevantMessages + " \n" + "Final Keywords: " + SuggestionModeKeyboardView.finalKeywords + "\n" + "Final Relevant Tone: " + SuggestionModeKeyboardView.finalTone);
+        Log.i("SuggestionPalettes","Final Relevant Messages: " + finalRelevantMessages + " | Final Keywords: " + SuggestionModeKeyboardView.finalKeywords + " | Final Relevant Tone: " + SuggestionModeKeyboardView.finalTone);
     }
 
     public void onClick(final View view) {
