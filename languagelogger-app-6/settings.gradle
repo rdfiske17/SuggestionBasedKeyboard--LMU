@@ -1,1 +1,1 @@
-include ':researchime_contentextraction', ':researchime_contentabstraction',  ':researchime_base', ':Keyboard', ':ResearchIME-App', ':ResearchIME-Module'
+include ':researchime_base', ':Keyboard', ':ResearchIME-App', ':ResearchIME-Module'

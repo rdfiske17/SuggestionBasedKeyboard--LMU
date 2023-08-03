@@ -18,7 +18,7 @@ package de.lmu.ifi.researchime.filter;
 
 
 import de.lmu.ifi.researchime.EventBuffer;
-import de.lmu.ifi.researchime.contentextraction.model.event.Event;
+import de.lmu.ifi.researchime.contentextraction_model.event.Event;
 
 public abstract class AnonymizationFilter {
 

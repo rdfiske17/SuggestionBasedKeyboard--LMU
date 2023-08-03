@@ -21,7 +21,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 
-import de.lmu.ifi.researchime.contentextraction.model.event.EventInputMode;
+import de.lmu.ifi.researchime.contentextraction_model.event.EventInputMode;
 
 public interface IEventHandler {
 

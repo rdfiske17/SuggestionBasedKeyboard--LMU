@@ -1,6 +1,8 @@
 package de.lmu.ifi.researchime;
 
-import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
+//import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
+
+import de.lmu.ifi.researchime.base.logging.LogHelper;
 
 /*
  * https://medium.com/@ssaurel/how-to-auto-restart-an-android-application-after-a-crash-or-a-force-close-error-1a361677c0ce

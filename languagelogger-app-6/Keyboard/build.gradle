@@ -36,7 +36,6 @@ android {
 
 dependencies {
     implementation project(":ResearchIME-Module")
-    implementation project(":researchime_contentextraction")
     implementation 'com.google.code.findbugs:jsr305:1.3.9'
     api 'com.android.support:support-v4:' + project.supportLibVersion
 }

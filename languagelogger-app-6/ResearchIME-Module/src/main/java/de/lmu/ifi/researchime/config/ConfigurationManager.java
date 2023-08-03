@@ -25,7 +25,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
 import de.lmu.ifi.researchime.base.RestClient;
-import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
+//import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
 import de.lmu.ifi.researchime.data.KeyboardInteractorRegistry;
 import de.lmu.ifi.researchime.module.R;
 import retrofit.Callback;
@@ -71,7 +71,7 @@ public class ConfigurationManager {
 
             @Override
             public void failure(RetrofitError error) {
-                LogHelper.e(TAG,RestClient.getErrorDescription(error));
+                //LogHelper.e(TAG,RestClient.getErrorDescription(error));
             }
         });
     }
@@ -82,7 +82,7 @@ public class ConfigurationManager {
             JsonElement configValueElement = configurations.get(configKey);
             if (configValueElement != null && configValueElement.isJsonPrimitive()){
                 JsonPrimitive configValue = configValueElement.getAsJsonPrimitive();
-                LogHelper.i(TAG, configKey + " = " + configValue);
+                //LogHelper.i(TAG, configKey + " = " + configValue);
                 if (configValue.isBoolean()){
                     editor.putBoolean(configKey, configValue.getAsBoolean());
                 } else if (configValue.isNumber()){

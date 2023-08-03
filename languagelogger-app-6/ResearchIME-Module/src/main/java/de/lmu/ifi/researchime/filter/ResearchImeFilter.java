@@ -18,8 +18,8 @@ package de.lmu.ifi.researchime.filter;
 
 import java.util.Arrays;
 
-import de.lmu.ifi.researchime.contentextraction.model.event.Event;
-import de.lmu.ifi.researchime.contentextraction.model.event.TouchEvent;
+import de.lmu.ifi.researchime.contentextraction_model.event.Event;
+import de.lmu.ifi.researchime.contentextraction_model.event.TouchEvent;
 
 public class ResearchImeFilter extends RandomNGramFilter {
 

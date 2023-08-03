@@ -33,7 +33,7 @@ import com.android.inputmethod.latin.R;
 import com.android.inputmethod.latin.common.Constants;
 import com.android.inputmethod.latin.common.CoordinateUtils;
 
-import de.lmu.ifi.researchime.contentextraction.model.event.EventInputMode;
+import de.lmu.ifi.researchime.contentextraction_model.event.EventInputMode;
 import de.lmu.ifi.researchime.LatinIMEEventController;
 
 /**

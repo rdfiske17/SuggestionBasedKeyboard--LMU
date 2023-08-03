@@ -30,8 +30,6 @@ android {
 
 dependencies {
     implementation project(":researchime_base")
-    implementation project(":researchime_contentabstraction")
-    implementation project(':researchime_contentextraction')
 
     api 'com.github.satyan:sugar:1.4'
     api 'org.apache.commons:commons-lang3:3.4'

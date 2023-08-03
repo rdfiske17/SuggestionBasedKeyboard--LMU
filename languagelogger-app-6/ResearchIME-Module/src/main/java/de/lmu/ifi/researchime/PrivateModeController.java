@@ -21,7 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 
-import de.lmu.ifi.researchime.contentextraction.model.event.PrivateModeEvent;
+import de.lmu.ifi.researchime.contentextraction_model.event.PrivateModeEvent;
 
 public class PrivateModeController {
 
