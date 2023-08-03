@@ -25,7 +25,8 @@ import com.google.gson.JsonObject;
 import java.util.List;
 
 import de.lmu.ifi.researchime.base.RestClient;
-import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
+//import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
+import de.lmu.ifi.researchime.base.logging.LogHelper;
 import de.lmu.ifi.researchime.model.KeyboardState;
 import retrofit.ResponseCallback;
 import retrofit.RetrofitError;

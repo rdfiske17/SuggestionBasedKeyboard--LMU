@@ -33,7 +33,8 @@ dependencies {
     implementation project(":ResearchIME-Module")
     implementation 'com.google.firebase:firebase-messaging:10.0.1'
     implementation "com.github.raizlabs.dbflow:dbflow:4.0.3"
-    implementation project(path: ':researchime_contentextraction')
+    implementation 'com.google.code.gson:gson:2.7'
+    implementation project(path: ':researchime_base')
 }
 
 apply plugin: 'com.google.gms.google-services'

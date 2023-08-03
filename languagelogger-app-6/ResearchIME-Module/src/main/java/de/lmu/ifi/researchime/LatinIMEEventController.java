@@ -31,8 +31,9 @@ import android.view.inputmethod.ExtractedTextRequest;
 import android.view.inputmethod.InputConnection;
 import android.widget.ImageButton;
 
-import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
-import de.lmu.ifi.researchime.contentextraction.model.event.EventInputMode;
+//import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
+import de.lmu.ifi.researchime.base.logging.LogHelper;
+import de.lmu.ifi.researchime.contentextraction_model.event.EventInputMode;
 import de.lmu.ifi.researchime.data.KeyboardInteractorRegistry;
 
 public class LatinIMEEventController {

@@ -9,8 +9,8 @@ import com.orm.SugarApp;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
 
-import de.lmu.ifi.researchime.contentabstraction.RIMEInputContentProcessingController;
-import de.lmu.ifi.researchime.contentextraction.DbInitializer;
+//import de.lmu.ifi.researchime.contentabstraction.RIMEInputContentProcessingController;
+//import de.lmu.ifi.researchime.contentextraction.DbInitializer;
 
 public class ApplicationController extends SugarApp {
 
@@ -21,8 +21,8 @@ public class ApplicationController extends SugarApp {
         super.onCreate();
 
         FlowManager.init(new FlowConfig.Builder(this).build());
-        RIMEInputContentProcessingController.initDatabase(getApplicationContext());
-        DbInitializer.initRimeContentExtractionDb(getApplicationContext());
+        //RIMEInputContentProcessingController.initDatabase(getApplicationContext());
+        //DbInitializer.initRimeContentExtractionDb(getApplicationContext());
 
         createNotificationChannel(getApplicationContext());
 

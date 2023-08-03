@@ -21,12 +21,13 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 
-import com.raizlabs.android.dbflow.sql.language.SQLite;
+//import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.util.List;
 
-import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
-import de.lmu.ifi.researchime.contentextraction.model.EventJson;
+import de.lmu.ifi.researchime.base.logging.LogHelper;
+//import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
+import de.lmu.ifi.researchime.contentextraction_model.EventJson;
 import de.lmu.ifi.researchime.data.KeyboardInteractorRegistry;
 import de.lmu.ifi.researchime.data.keyboard.model.KeyboardContainer;
 import de.lmu.ifi.researchime.filter.AnonymizationFilter;
@@ -86,7 +87,7 @@ public class PersistentStorageAndTransmissionController {
             transmitDBToServer(context);
 
             //delete from db to prevent repeated transmission to server
-            SQLite.delete().from(EventJson.class).executeUpdateDelete();
+            //SQLite.delete().from(EventJson.class).executeUpdateDelete();
 
             return null;
         }
@@ -96,12 +97,12 @@ public class PersistentStorageAndTransmissionController {
 
             List<EventJson> jsonEvents = buffer.getAllAsJsonEvents(context);
             for (EventJson eventJson : jsonEvents){
-                eventJson.save();
+                //eventJson.save();
             }
         }
 
         private void transmitDBToServer(Context context) {
-            long count = SQLite.select().from(EventJson.class).count();
+            /*long count = SQLite.select().from(EventJson.class).count();
             if (count < databaseTransmissionThreshold) {
                 LogHelper.i(TAG, String.format("Not transmitting events to server. %d events is under threshold of %d events.", count, databaseTransmissionThreshold));
                 return;
@@ -127,7 +128,7 @@ public class PersistentStorageAndTransmissionController {
                         eventJson.save();
                     }
                 }
-            });
+            });*/
         }
     }
 }

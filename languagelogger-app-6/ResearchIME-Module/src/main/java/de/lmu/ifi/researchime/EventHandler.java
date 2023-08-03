@@ -23,22 +23,23 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 
+import de.lmu.ifi.researchime.base.logging.LogHelper;
 import de.lmu.ifi.researchime.config.ConfigurationManager;
-import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
-import de.lmu.ifi.researchime.contentextraction.model.event.EventInputMode;
+//import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
+import de.lmu.ifi.researchime.contentextraction_model.event.EventInputMode;
 import de.lmu.ifi.researchime.data.KeyboardInteractorRegistry;
 import de.lmu.ifi.researchime.data.keyboard.model.KeyboardContainer;
 import de.lmu.ifi.researchime.model.KeyboardState;
 import de.lmu.ifi.researchime.model.User;
-import de.lmu.ifi.researchime.contentextraction.model.event.AutoCorrectEvent;
-import de.lmu.ifi.researchime.contentextraction.model.event.ContentChangeEvent;
-import de.lmu.ifi.researchime.contentextraction.model.event.Event;
-import de.lmu.ifi.researchime.contentextraction.model.event.PrivateModeEvent;
-import de.lmu.ifi.researchime.contentextraction.model.event.SuggestionPickedEvent;
-import de.lmu.ifi.researchime.contentextraction.model.event.TouchEvent;
+import de.lmu.ifi.researchime.contentextraction_model.event.AutoCorrectEvent;
+import de.lmu.ifi.researchime.contentextraction_model.event.ContentChangeEvent;
+import de.lmu.ifi.researchime.contentextraction_model.event.Event;
+import de.lmu.ifi.researchime.contentextraction_model.event.PrivateModeEvent;
+import de.lmu.ifi.researchime.contentextraction_model.event.SuggestionPickedEvent;
+import de.lmu.ifi.researchime.contentextraction_model.event.TouchEvent;
 import de.lmu.ifi.researchime.registration.UserRegistrationHandler;
 
-public class EventHandler implements IEventHandler, PrivateModeController.PrivateModeListener {
+public class EventHandler implements IEventHandler {
 
     private static final String TAG = "EventHandler";
 
@@ -49,7 +50,7 @@ public class EventHandler implements IEventHandler, PrivateModeController.Privat
     private EventBuffer buffer;
 
     private PersistentStorageAndTransmissionController storageAndTransmissionController;
-    private ContentAbstractionCaller contentAbstractionCaller;
+    //private ContentAbstractionCaller contentAbstractionCaller;
     private SensorController sensorController;
     private HandPostureController handPostureController;
     private PrivateModeController privateModeController;
@@ -117,7 +118,7 @@ public class EventHandler implements IEventHandler, PrivateModeController.Privat
         if (isInitialized && isTrackingEnabled()){
             sensorController.startRecording();
             if (isShowHandPosture()) {
-                handPostureController.prompt();
+                //handPostureController.prompt();
             }
         }
     }
@@ -135,22 +136,22 @@ public class EventHandler implements IEventHandler, PrivateModeController.Privat
             LogHelper.i(TAG, "Initializing handler");
             if(keyboardContainer == null) keyboardContainer = KeyboardInteractorRegistry.getKeyboardInteractor(context).getModel();
             if (storageAndTransmissionController == null) storageAndTransmissionController = new PersistentStorageAndTransmissionController(context);
-            if (contentAbstractionCaller == null) contentAbstractionCaller = new ContentAbstractionCaller(context);
-            if (privateModeController == null) privateModeController = new PrivateModeController(this);
+            //if (contentAbstractionCaller == null) contentAbstractionCaller = new ContentAbstractionCaller(context);
+            //if (privateModeController == null) privateModeController = new PrivateModeController(this);
             if (buffer == null) buffer = new EventBuffer();
             if (sensorController == null) sensorController = new SensorController(context);
             if (user == null) user = UserRegistrationHandler.getUserOrLaunchRegistration(context);
-            if (storageAndTransmissionController != null && privateModeController != null && buffer != null && user != null &&
-                    keyboardState != null && sensorController != null && handPostureController != null && contentAbstractionCaller != null){
-                LogHelper.i(TAG, "Initialization successful");
+            //if (storageAndTransmissionController != null && privateModeController != null && buffer != null && user != null &&
+            //        keyboardState != null && sensorController != null && handPostureController != null && contentAbstractionCaller != null){
+            //    LogHelper.i(TAG, "Initialization successful");
                 isInitialized = true;
             }
             else {
-                LogHelper.w(TAG, String.format("Couldn't initialize because %s was null.",
-                        storageAndTransmissionController == null? "storageAndTransmissionController" : privateModeController == null? "privateModeController" : buffer == null? "buffer" :
-                                user == null? "user" : sensorController == null? "sensorManager" : keyboardState == null? "keyboardState" :
-                                        contentAbstractionCaller == null? "contentAbstractionCaller" : "?"));
-            }
+                //LogHelper.w(TAG, String.format("Couldn't initialize because %s was null.",
+                 //       storageAndTransmissionController == null? "storageAndTransmissionController" : privateModeController == null? "privateModeController" : buffer == null? "buffer" :
+                 //               user == null? "user" : sensorController == null? "sensorManager" : keyboardState == null? "keyboardState" :
+                 //                       contentAbstractionCaller == null? "contentAbstractionCaller" : "?"));
+            //}
 
             Thread.setDefaultUncaughtExceptionHandler(new AppExceptionHandler());
         }
@@ -161,7 +162,7 @@ public class EventHandler implements IEventHandler, PrivateModeController.Privat
         LogHelper.i(TAG,"onFinishInput()");
         if (isInitialized) {
             storageAndTransmissionController.storeEvents(context, buffer);
-            contentAbstractionCaller.extractWordEventsAndCallContentAbstractionModule(context, user.getUuid(), buffer.getAll());
+            //contentAbstractionCaller.extractWordEventsAndCallContentAbstractionModule(context, user.getUuid(), buffer.getAll());
 
             // to avoid concurrency problems
             buffer = new EventBuffer();
@@ -209,13 +210,13 @@ public class EventHandler implements IEventHandler, PrivateModeController.Privat
         processNewEvent(new AutoCorrectEvent(oldText.toString(), newText.toString(), offset));
     }
 
-    @Override
+    //@Override
     public void onPrivateModeStatusChange(boolean enabled, PrivateModeEvent.Cause cause) {
         processNewEvent(new PrivateModeEvent(enabled, cause));
     }
 
     public void initPrivateModeManager(PrivateModeButton privateModeButton) {
-        if (privateModeController == null) privateModeController = new PrivateModeController(this);
+        //if (privateModeController == null) privateModeController = new PrivateModeController(this);
         privateModeController.init(privateModeButton);
         privateModeController.setVisible(isTrackingEnabled());
     }
@@ -234,18 +235,18 @@ public class EventHandler implements IEventHandler, PrivateModeController.Privat
         }
 
         //private mode is on, ignore event
-        if (event.getType() != Event.Type.PRIVATE_MODE && privateModeController.isEnabled()){
-            return;
-        }
+        //if (event.getType() != Event.Type.PRIVATE_MODE && privateModeController.isEnabled()){
+            //return;
+        //}
         Log.d(TAG,"setting sensors and etc.");
-        event.setSensors(sensorController.getLatestSensorValues());
-        event.setHandPosture(handPostureController.getLatestHandPosture());
-        event.setUserUuid(user.getUuid());
-        event.setKeyboardStateUuid(keyboardState.getUuid());
-        event.setFieldPackageName(editorInfo.packageName);
-        event.setFieldId(editorInfo.fieldId);
-        event.setFieldHintText(editorInfo.hintText);
+        //event.setSensors(sensorController.getLatestSensorValues());
+        //event.setHandPosture(handPostureController.getLatestHandPosture());
+        //event.setUserUuid(user.getUuid());
+        //event.setKeyboardStateUuid(keyboardState.getUuid());
+        //event.setFieldPackageName(editorInfo.packageName);
+        //event.setFieldId(editorInfo.fieldId);
+        //event.setFieldHintText(editorInfo.hintText);
 
-        buffer.add(event);
+        //buffer.add(event);
     }
 }

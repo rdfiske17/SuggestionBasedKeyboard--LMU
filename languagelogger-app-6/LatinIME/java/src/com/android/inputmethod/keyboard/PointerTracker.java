@@ -47,7 +47,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import de.lmu.ifi.researchime.LatinIMEEventController;
-import de.lmu.ifi.researchime.contentextraction.model.event.EventInputMode;
+import de.lmu.ifi.researchime.contentextraction_model.event.EventInputMode;
 
 public final class PointerTracker implements PointerTrackerQueue.Element,
         BatchInputArbiterListener {

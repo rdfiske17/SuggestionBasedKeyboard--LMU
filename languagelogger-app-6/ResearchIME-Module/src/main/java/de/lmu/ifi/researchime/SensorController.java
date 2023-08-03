@@ -32,7 +32,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
+//import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
+import de.lmu.ifi.researchime.base.logging.LogHelper;
 import de.lmu.ifi.researchime.module.R;
 
 public class SensorController implements SensorEventListener {

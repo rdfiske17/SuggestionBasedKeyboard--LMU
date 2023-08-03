@@ -18,7 +18,7 @@ package de.lmu.ifi.researchime.filter;
 
 import java.util.Random;
 
-import de.lmu.ifi.researchime.contentextraction.model.event.Event;
+import de.lmu.ifi.researchime.contentextraction_model.event.Event;
 
 public class RandomNGramFilter extends AnonymizationFilter {
 

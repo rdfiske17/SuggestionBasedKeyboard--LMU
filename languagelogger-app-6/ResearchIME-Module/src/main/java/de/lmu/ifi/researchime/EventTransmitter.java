@@ -24,8 +24,9 @@ import com.google.gson.JsonObject;
 import java.util.List;
 
 import de.lmu.ifi.researchime.base.RestClient;
-import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
-import de.lmu.ifi.researchime.contentextraction.model.EventJson;
+//import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
+import de.lmu.ifi.researchime.base.logging.LogHelper;
+import de.lmu.ifi.researchime.contentextraction_model.EventJson;
 import retrofit.ResponseCallback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;

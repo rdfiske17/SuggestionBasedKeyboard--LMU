@@ -32,7 +32,7 @@ import android.widget.Toast;
 
 import de.lmu.ifi.researchime.base.RestClient;
 import de.lmu.ifi.researchime.config.ConfigurationManager;
-import de.lmu.ifi.researchime.contentabstraction.setup.SetupCompletionActivity;
+//import de.lmu.ifi.researchime.contentabstraction.setup.SetupCompletionActivity;
 import de.lmu.ifi.researchime.dialog.DialogHelper;
 import de.lmu.ifi.researchime.model.User;
 import de.lmu.ifi.researchime.module.R;
@@ -146,9 +146,9 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     private void goToSetupCompletionActivity(){
-        Intent intent = new Intent(this, SetupCompletionActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        //Intent intent = new Intent(this, SetupCompletionActivity.class);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        //startActivity(intent);
     }
 
 

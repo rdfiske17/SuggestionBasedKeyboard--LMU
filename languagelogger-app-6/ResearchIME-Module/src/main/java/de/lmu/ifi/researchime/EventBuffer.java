@@ -23,9 +23,12 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
-import de.lmu.ifi.researchime.contentextraction.model.EventJson;
-import de.lmu.ifi.researchime.contentextraction.model.event.Event;
+//import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
+//import de.lmu.ifi.researchime.contentextraction.model.EventJson;
+//import de.lmu.ifi.researchime.contentextraction.model.event.Event;
+import de.lmu.ifi.researchime.base.logging.LogHelper;
+import de.lmu.ifi.researchime.contentextraction_model.EventJson;
+import de.lmu.ifi.researchime.contentextraction_model.event.Event;
 import de.lmu.ifi.researchime.data.KeyboardInteractorRegistry;
 import de.lmu.ifi.researchime.data.keyboard.model.KeyboardContainer;
 

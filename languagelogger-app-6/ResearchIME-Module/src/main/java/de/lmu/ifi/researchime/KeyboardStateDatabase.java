@@ -20,7 +20,8 @@ import android.util.Log;
 
 import java.util.List;
 
-import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
+//import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
+import de.lmu.ifi.researchime.base.logging.LogHelper;
 import de.lmu.ifi.researchime.model.KeyboardState;
 
 public class KeyboardStateDatabase {
