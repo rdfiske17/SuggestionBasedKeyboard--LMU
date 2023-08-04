@@ -31,7 +31,8 @@ public class MessagesGateway extends RestGateway<MessagesContainer> {
     @Override
     public MessagesContainer fetch() throws Exception {
         String userId = UserRegistrationHandler.getUserId();
-        return getJsonParser().fromJson(getClient().getDashboard(userId), getType());
+        //return getJsonParser().fromJson(getClient().getDashboard(userId), getType());
+        return null;
     }
 
     @Override

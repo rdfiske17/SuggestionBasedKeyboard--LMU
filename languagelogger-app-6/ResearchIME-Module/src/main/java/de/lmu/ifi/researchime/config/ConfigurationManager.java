@@ -24,13 +24,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
-import de.lmu.ifi.researchime.base.RestClient;
 //import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
 import de.lmu.ifi.researchime.data.KeyboardInteractorRegistry;
 import de.lmu.ifi.researchime.module.R;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+//import retrofit.Callback;
+//import retrofit.RetrofitError;
+//import retrofit.client.Response;
 
 public class ConfigurationManager {
 
@@ -60,7 +59,7 @@ public class ConfigurationManager {
     }
 
     private static void loadRemoteConfiguration(final Context context){
-        RestClient.get(context).getConfiguration(new Callback<JsonObject>() {
+        /*RestClient.get(context).getConfiguration(new Callback<JsonObject>() {
             @Override
             public void success(JsonObject configurations, Response response) {
                 lastCheck = System.currentTimeMillis();
@@ -73,7 +72,7 @@ public class ConfigurationManager {
             public void failure(RetrofitError error) {
                 //LogHelper.e(TAG,RestClient.getErrorDescription(error));
             }
-        });
+        });*/
     }
 
     private static void onSuccess(Context context, JsonObject configurations){

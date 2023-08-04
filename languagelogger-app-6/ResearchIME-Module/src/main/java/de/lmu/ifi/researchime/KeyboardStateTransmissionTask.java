@@ -24,13 +24,12 @@ import com.google.gson.JsonObject;
 
 import java.util.List;
 
-import de.lmu.ifi.researchime.base.RestClient;
 //import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
 import de.lmu.ifi.researchime.base.logging.LogHelper;
 import de.lmu.ifi.researchime.model.KeyboardState;
-import retrofit.ResponseCallback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+//import retrofit.ResponseCallback;
+//import retrofit.RetrofitError;
+//import retrofit.client.Response;
 
 public class KeyboardStateTransmissionTask extends AsyncTask<KeyboardState, Void, Void> {
 
@@ -75,7 +74,7 @@ public class KeyboardStateTransmissionTask extends AsyncTask<KeyboardState, Void
     }
 
     private void sendStateEvents(final List<KeyboardState> stateEvents){
-        RestClient.get(context).postKeyboardState(getStateJson(stateEvents), new ResponseCallback() {
+        /*RestClient.get(context).postKeyboardState(getStateJson(stateEvents), new ResponseCallback() {
             @Override
             public void success(Response response) {
                 LogHelper.i(TAG, "Keyboard state successfully sent to server.");
@@ -86,6 +85,6 @@ public class KeyboardStateTransmissionTask extends AsyncTask<KeyboardState, Void
                 LogHelper.e(TAG, "Keyboard state to server failure:\n" + RestClient.getErrorDescription(error));
                 database.store(stateEvents.toArray(new KeyboardState[stateEvents.size()]));
             }
-        });
+        });*/
     }
 }

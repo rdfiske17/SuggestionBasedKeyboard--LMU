@@ -13,7 +13,15 @@ import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
 import com.android.inputmethod.latin.R;
 import com.android.inputmethod.latin.common.Constants;
 
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+
 public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModePhase implements View.OnClickListener {
+
+    public static final MediaType JSON
+            = MediaType.get("application/json; charset=utf-8");
+
+    OkHttpClient client = new OkHttpClient();
 
     private String finalRelevantMessages = "";
     private TextView text1;
@@ -52,6 +60,8 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
         }
         text1.setText("Final Relevant Messages: " + finalRelevantMessages + " \n" + "Final Keywords: " + SuggestionModeKeyboardView.finalKeywords + "\n" + "Final Relevant Tone: " + SuggestionModeKeyboardView.finalTone);
         Log.i("SuggestionPalettes","Final Relevant Messages: " + finalRelevantMessages + " | Final Keywords: " + SuggestionModeKeyboardView.finalKeywords + " | Final Relevant Tone: " + SuggestionModeKeyboardView.finalTone);
+
+        
     }
 
     public void onClick(final View view) {

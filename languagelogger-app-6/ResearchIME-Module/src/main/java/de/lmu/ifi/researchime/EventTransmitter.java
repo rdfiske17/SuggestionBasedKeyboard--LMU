@@ -23,13 +23,12 @@ import com.google.gson.JsonObject;
 
 import java.util.List;
 
-import de.lmu.ifi.researchime.base.RestClient;
 //import de.lmu.ifi.researchime.contentextraction.logging.LogHelper;
 import de.lmu.ifi.researchime.base.logging.LogHelper;
 import de.lmu.ifi.researchime.contentextraction_model.EventJson;
-import retrofit.ResponseCallback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+//import retrofit.ResponseCallback;
+//import retrofit.RetrofitError;
+//import retrofit.client.Response;
 
 public class EventTransmitter {
 
@@ -46,7 +45,7 @@ public class EventTransmitter {
         JsonObject object = new JsonObject();
         object.add("events", array);
 
-        RestClient.get(context).postEvents(object, new ResponseCallback() {
+        /*RestClient.get(context).postEvents(object, new ResponseCallback() {
             @Override
             public void success(Response response) {
                 LogHelper.i(TAG, "Events successfully sent to server.");
@@ -58,7 +57,7 @@ public class EventTransmitter {
                 LogHelper.i(TAG, "Events to server failure: " + RestClient.getErrorDescription(error));
                 callback.onTransmissionFailure();
             }
-        });
+        });*/
     }
 
     public interface TransmissionCallback {

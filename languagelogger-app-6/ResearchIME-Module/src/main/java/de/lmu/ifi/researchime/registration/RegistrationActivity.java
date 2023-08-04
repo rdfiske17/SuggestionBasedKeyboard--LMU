@@ -30,16 +30,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import de.lmu.ifi.researchime.base.RestClient;
 import de.lmu.ifi.researchime.config.ConfigurationManager;
 //import de.lmu.ifi.researchime.contentabstraction.setup.SetupCompletionActivity;
 import de.lmu.ifi.researchime.dialog.DialogHelper;
 import de.lmu.ifi.researchime.model.User;
 import de.lmu.ifi.researchime.module.R;
 import de.lmu.ifi.researchime.module.databinding.RegistrationRootBinding;
-import retrofit.ResponseCallback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+//import retrofit.ResponseCallback;
+//import retrofit.RetrofitError;
+//import retrofit.client.Response;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -124,7 +123,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private void postToServer(final User user) {
         showProgressDialog();
-        RestClient.get(this).postUser(user.getJson(), new ResponseCallback() {
+        /*RestClient.get(this).postUser(user.getJson(), new ResponseCallback() {
             @Override
             public void success(Response response) {
                 onUserPostSuccess(user);
@@ -133,7 +132,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void failure(RetrofitError error) {
                 onUserPostError(error);
             }
-        });
+        });*/
     }
 
     private void onUserPostSuccess(User user){
@@ -153,7 +152,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
 
-    private void onUserPostError(RetrofitError error){
+    /*private void onUserPostError(RetrofitError error){
         if(isFinishing()){
             return;
         }
@@ -162,7 +161,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 .setMessage("Registration error:\n" + RestClient.getErrorDescription(error))
                 .setPositiveButton("OK", null)
                 .create().show();
-    }
+    }*/
 
     private void showProgressDialog(){
         dismissProgressDialog();

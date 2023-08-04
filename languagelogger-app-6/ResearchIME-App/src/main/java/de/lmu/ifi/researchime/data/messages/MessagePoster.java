@@ -21,11 +21,10 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-import de.lmu.ifi.researchime.base.RestClient;
 import de.lmu.ifi.researchime.data.messages.model.MessageModel;
-import retrofit.ResponseCallback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+//import retrofit.ResponseCallback;
+//import retrofit.RetrofitError;
+//import retrofit.client.Response;
 
 public class MessagePoster {
 
@@ -44,7 +43,7 @@ public class MessagePoster {
 
     public void post(final MessageModel message){
         JsonObject json = gson.toJsonTree(message).getAsJsonObject();
-        RestClient.get(null).postMessage(json, new ResponseCallback() {
+        /*RestClient.get(null).postMessage(json, new ResponseCallback() {
             @Override
             public void success(Response response) {
                 if(listener != null){
@@ -59,7 +58,7 @@ public class MessagePoster {
                     listener.onError();
                 }
             }
-        });
+        });*/
     }
 
     public interface MessagePostCallback{

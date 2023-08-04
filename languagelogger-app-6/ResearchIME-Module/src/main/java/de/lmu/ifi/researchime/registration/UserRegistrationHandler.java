@@ -30,11 +30,10 @@ import java.util.Iterator;
 
 import de.lmu.ifi.researchime.Config;
 import de.lmu.ifi.researchime.DeviceUtils;
-import de.lmu.ifi.researchime.base.RestClient;
 import de.lmu.ifi.researchime.model.User;
-import retrofit.ResponseCallback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+//import retrofit.ResponseCallback;
+//import retrofit.RetrofitError;
+//import retrofit.client.Response;
 
 public class UserRegistrationHandler {
 
@@ -67,7 +66,7 @@ public class UserRegistrationHandler {
     }
 
     private static void sendUserToBackend(Context context, User user){
-        RestClient.get(context).postUser(user.getJson(), new ResponseCallback() {
+        /*RestClient.get(context).postUser(user.getJson(), new ResponseCallback() {
             @Override
             public void success(Response response) {
                 Logger.i("User data sent to server");
@@ -76,7 +75,7 @@ public class UserRegistrationHandler {
             public void failure(RetrofitError error) {
                 Logger.e("Error sending user data to server", error);
             }
-        });
+        });*/
     }
 
     public static User getUser(){

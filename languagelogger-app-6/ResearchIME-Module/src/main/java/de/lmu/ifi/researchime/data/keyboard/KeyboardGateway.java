@@ -35,7 +35,8 @@ public class KeyboardGateway extends RestGateway<KeyboardContainer> {
     public KeyboardContainer fetch() throws Exception {
         String userId = UserRegistrationHandler.getUserId();
         String layoutId = storage.get().getEnabledKeyboardId();
-        return getJsonParser().fromJson(getClient().getLayout(userId, layoutId), getType());
+        //return getJsonParser().fromJson(getClient().getLayout(userId, layoutId), getType());
+        return null;
     }
 
     @Override

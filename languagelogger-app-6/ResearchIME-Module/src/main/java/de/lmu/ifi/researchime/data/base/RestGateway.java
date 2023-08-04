@@ -21,17 +21,14 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 
-import de.lmu.ifi.researchime.base.RestClient;
-import de.lmu.ifi.researchime.base.ServerApi;
-
 public abstract class RestGateway<T> {
 
     private Gson jsonParser;
-    private ServerApi restClient;
+    //private ServerApi restClient;
     private Class<T> classType;
 
     public RestGateway(Context context, Class<T> classType){
-        this.restClient = RestClient.get(context.getApplicationContext());
+        //this.restClient = RestClient.get(context.getApplicationContext());
         this.jsonParser = new Gson();
         this.classType = classType;
     }
@@ -40,9 +37,9 @@ public abstract class RestGateway<T> {
         return jsonParser;
     }
 
-    protected final ServerApi getClient(){
-        return restClient;
-    }
+    //protected final ServerApi getClient(){
+    //    return restClient;
+    //}
 
     protected final Class<T> getType(){
         return classType;
