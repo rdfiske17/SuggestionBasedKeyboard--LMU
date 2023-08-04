@@ -5,3 +5,4 @@
 .DS_Store
 /build
 /captures
+**/*/res/values/secrets.xml

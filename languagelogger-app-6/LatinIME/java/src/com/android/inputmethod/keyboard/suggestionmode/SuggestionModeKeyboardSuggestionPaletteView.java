@@ -11,6 +11,7 @@ import android.widget.Toast;
 import android.app.Activity;
 
 import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
+import com.android.inputmethod.latin.LatinIME;
 import com.android.inputmethod.latin.R;
 import com.android.inputmethod.latin.common.Constants;
 
@@ -22,6 +23,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import de.lmu.ifi.researchime.module.BuildConfig;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
@@ -36,6 +38,8 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
             = MediaType.get("application/json; charset=utf-8");
 
     OkHttpClient client = new OkHttpClient();
+
+    private String OPENAPI_KEY = getResources().getString(R.string.OpenAPI_Key);
 
     private String finalRelevantMessages = "";
     private TextView text1;
@@ -119,7 +123,7 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
         RequestBody body = RequestBody.create(jsonBody.toString(),JSON);
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/completions")
-                .header("Authorization","Bearer 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")
+                .header("Authorization", OPENAPI_KEY)
                 .post(body)
                 .build();
 
