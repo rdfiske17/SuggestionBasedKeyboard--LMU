@@ -6,7 +6,7 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import de.lmu.ifi.suggestionkeyboardresearchapplication.databinding.ActivityMainBinding;
+import com.example.suggestionkeyboardresearchapplication.databinding.ActivityMainBinding;
 
 import org.jetbrains.annotations.Nullable;
 

@@ -1,7 +1,6 @@
 pluginManagement {
     repositories {
         google()
-        jcenter()
         mavenCentral()
         gradlePluginPortal()
     }
@@ -17,5 +16,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Suggestion Keyboard Research Application"
 include ':app'
-include ':Keyboard'
-include ':ResearchIME-Module'

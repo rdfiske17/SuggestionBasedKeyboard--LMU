@@ -2,13 +2,3 @@
 plugins {
 id 'com.android.application' version '8.1.0-beta05' apply false
 }
-
-project.ext {
-    compileSdkVersion = 28
-    minSdkVersion = 21
-    targetSdkVersion = compileSdkVersion
-    versionCode = 4
-    versionName = '2.0.2'
-    supportLibVersion = '27.1.0'
-    dbflow_version = "4.0.5"
-}

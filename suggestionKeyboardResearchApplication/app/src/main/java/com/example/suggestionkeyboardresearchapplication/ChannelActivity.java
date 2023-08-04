@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import de.lmu.ifi.suggestionkeyboardresearchapplication.databinding.ActivityChannelBinding;
+import com.example.suggestionkeyboardresearchapplication.databinding.ActivityChannelBinding;
 import com.getstream.sdk.chat.viewmodel.MessageInputViewModel;
 import com.getstream.sdk.chat.viewmodel.messages.MessageListViewModel;
 import com.getstream.sdk.chat.viewmodel.messages.MessageListViewModel.Mode.Normal;
