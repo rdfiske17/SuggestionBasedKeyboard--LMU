@@ -13,8 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:textOff="Message One"
-        android:textOn="Message One"
+        android:textOff="Do you want to come over for dinner?"
+        android:textOn="Do you want to come over for dinner?"
         android:textColor="#FFFFFF"
         android:textAlignment="center"
         android:background="@drawable/button_unselected"/>
@@ -24,8 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:textOff="Message Two"
-        android:textOn="Message Two"
+        android:textOff="I have two dogs!"
+        android:textOn="I have two dogs!"
         android:textColor="#FFFFFF"
         android:textAlignment="center"
         android:background="@drawable/button_unselected"/>
@@ -35,8 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:textOff="Message Three"
-        android:textOn="Message Three"
+        android:textOff="Of course"
+        android:textOn="Of course"
         android:textColor="#FFFFFF"
         android:textAlignment="center"
         android:background="@drawable/button_unselected"/>
@@ -46,8 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:textOff="Message Four"
-        android:textOn="Message Four"
+        android:textOff="That sounds fun!"
+        android:textOn="That sounds fun!"
         android:textColor="#FFFFFF"
         android:textAlignment="center"
         android:background="@drawable/button_unselected"/>

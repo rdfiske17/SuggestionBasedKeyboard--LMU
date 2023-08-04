@@ -180,7 +180,9 @@ public class SuggestionModeKeyboardToneView extends SuggestionModePhase {
     }*/
 
     public void setToneText(String textToAdd) {
-        toneText = textToAdd;
+        String characterFilter = "[^\\p{L}\\p{M}\\p{N}\\p{P}\\p{Z}\\p{Cf}\\p{Cs}\\s]"; //this should remove emojis from the string because they seem to be impacting the output messages, from https://itecnote.com/tecnote/java-remove-%E2%9C%85-%F0%9F%94%A5-%E2%9C%88-%E2%99%9B-and-other-such-emojis-images-signs-from-java-strings/
+        toneText = textToAdd.replaceAll(characterFilter,"");
+
     }
 
     public void phaseSetup() {
