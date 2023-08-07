@@ -16,18 +16,18 @@
 
 package de.lmu.ifi.researchime.messaging;
 
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.FirebaseInstanceIdService;
+//import com.google.firebase.iid.FirebaseInstanceId;
+//import com.google.firebase.iid.FirebaseInstanceIdService;
 
 import de.lmu.ifi.researchime.registration.UserRegistrationHandler;
 
-public class MessagingInstanceIdService extends FirebaseInstanceIdService {
+public class MessagingInstanceIdService  {
 
-    @Override
+    //@Override
     public void onTokenRefresh() {
-        String token = FirebaseInstanceId.getInstance().getToken();
+        /*String token = FirebaseInstanceId.getInstance().getToken();
         if(token != null){
             UserRegistrationHandler.updatePushToken(getApplicationContext(), token);
-        }
+        }*/
     }
 }

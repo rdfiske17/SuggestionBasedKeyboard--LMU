@@ -27,7 +27,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.content.ContextCompat;
 
-import com.google.firebase.messaging.FirebaseMessagingService;
+//import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -38,12 +38,12 @@ import de.lmu.ifi.researchime.config.ConfigurationManager;
 import de.lmu.ifi.researchime.data.MessagesInteractorRegistry;
 import de.lmu.ifi.researchime.data.messages.model.MessageModel;
 
-public class MessagingService extends FirebaseMessagingService {
+public class MessagingService {
 
     //this is the first entry point of a notification in Firebase
     //we use our own notification handling and ignore the Firebase Console notifications
     //-> no super call
-    @Override
+    //@Override
     public void zzm(Intent intent) {
         String payload = intent.getStringExtra("gcm.notification.body");
         if(payload != null){
@@ -74,22 +74,22 @@ public class MessagingService extends FirebaseMessagingService {
     }
 
     private void updateConfig(){
-        ConfigurationManager.forceUpdateConfigurationsFromServer(this);
-        ConfigurationManager.resetLastCheckTime();
+        //ConfigurationManager.forceUpdateConfigurationsFromServer(this);
+        //ConfigurationManager.resetLastCheckTime();
     }
 
     private void addMessageToObservable(final MessageModel message){
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
+        /*new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
                 MessagesInteractorRegistry.getMessagesInteractor(getApplicationContext())
                         .getModel().addMessageAtTop(message);
             }
-        });
+        });*/
     }
 
     private void showMessageNotification(MessageModel message){
-        NotificationCompat.Builder mBuilder =
+        /*NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setStyle(new NotificationCompat.BigTextStyle().bigText(message.getMessage()))
                         .setSmallIcon(R.drawable.ic_keyboard)
@@ -101,6 +101,6 @@ public class MessagingService extends FirebaseMessagingService {
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, DashboardActivity.class), 0);
         mBuilder.setContentIntent(contentIntent);
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify((int) (Math.random() * 1000), mBuilder.build());
+        notificationManager.notify((int) (Math.random() * 1000), mBuilder.build());*/
     }
 }
