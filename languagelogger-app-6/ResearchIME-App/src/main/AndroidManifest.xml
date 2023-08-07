@@ -44,19 +44,19 @@
             android:exported="true"
             android:theme="@style/AppTheme"/>
 
-        <service
+        <!--service
             android:name=".messaging.MessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
-        </service>
+        </service-->
 
-        <service
+        <!--service
             android:name=".messaging.MessagingInstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
-        </service>
+        </service-->
 
 
     </application>

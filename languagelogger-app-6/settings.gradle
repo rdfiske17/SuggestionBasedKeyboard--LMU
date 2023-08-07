@@ -1,1 +1,2 @@
 include ':researchime_base', ':Keyboard', ':ResearchIME-App', ':ResearchIME-Module'
+enableFeaturePreview("IMPROVED_POM_SUPPORT")
