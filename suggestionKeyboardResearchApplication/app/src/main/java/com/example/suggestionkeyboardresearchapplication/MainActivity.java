@@ -26,6 +26,11 @@ import static java.util.Collections.singletonList;
 
 public final class MainActivity extends AppCompatActivity {
 
+    private boolean isResearcher = false;     //TODO Change this to switch between researcher and participant views
+    private String username;
+    private String user_id;
+
+
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -52,10 +57,20 @@ public final class MainActivity extends AppCompatActivity {
 
         Log.i("Main Activity","Client Built");
 
+        if(isResearcher) {
+            username = "Researcher User";
+            user_id = "researcher_user";
+        }
+        else {
+            username = "Participant User";
+            user_id = "participant_user";
+        }
+
+
         // Step 3 - Authenticate and connect the user
         User user = new User();
-        user.setId("participant_user");
-        user.setName("Participant User");
+        user.setId(user_id);
+        user.setName(username);
         user.setImage("https://bit.ly/2TIt8NR");
         Log.i("Main Activity","User info set");
 

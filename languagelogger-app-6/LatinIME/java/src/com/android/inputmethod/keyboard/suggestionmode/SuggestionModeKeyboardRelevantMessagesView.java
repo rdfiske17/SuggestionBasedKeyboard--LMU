@@ -14,14 +14,11 @@ import com.android.inputmethod.keyboard.KeyboardSwitcher;
 import com.android.inputmethod.latin.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class SuggestionModeKeyboardRelevantMessagesView extends SuggestionModePhase {
 
@@ -33,7 +30,8 @@ public class SuggestionModeKeyboardRelevantMessagesView extends SuggestionModePh
     private ToggleButton message3;
     private ToggleButton message4;
 
-    private boolean textUpdatedYet = false;
+    private boolean isResearcher = false;     //TODO Change this to switch between researcher and participant views
+
     private ArrayList<String> relevantMessages = new ArrayList<String>();
 
 
@@ -111,15 +109,13 @@ public class SuggestionModeKeyboardRelevantMessagesView extends SuggestionModePh
             }
         }*/
         Log.i("RelevantMessages","Done setting-up");
-        textUpdatedYet = false;
-
     }
 
     private void getRecentMessages() {
         ArrayList<String> recentMessagesRaw = new ArrayList<String>();
 
         db.collection("messages")
-                .whereEqualTo("usedInKeyboard",true)
+                .whereEqualTo("ForParticipant",isResearcher)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -139,7 +135,6 @@ public class SuggestionModeKeyboardRelevantMessagesView extends SuggestionModePh
                         else {
                             Log.i("RelevantMessages","Error getting document: " + task.getException());
                         }
-                        textUpdatedYet = true;
                     }
                 });
     }
