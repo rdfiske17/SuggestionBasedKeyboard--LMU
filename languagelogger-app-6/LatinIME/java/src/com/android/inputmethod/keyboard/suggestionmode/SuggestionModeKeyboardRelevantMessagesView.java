@@ -30,7 +30,7 @@ public class SuggestionModeKeyboardRelevantMessagesView extends SuggestionModePh
     private ToggleButton message3;
     private ToggleButton message4;
 
-    private boolean isResearcher = false;     //TODO Change this to switch between researcher and participant views
+    private boolean isResearcher = true;     //TODO Change this to switch between researcher and participant views
 
     private ArrayList<String> relevantMessages = new ArrayList<String>();
 

@@ -26,7 +26,7 @@ import static java.util.Collections.singletonList;
 
 public final class MainActivity extends AppCompatActivity {
 
-    private boolean isResearcher = false;     //TODO Change this to switch between researcher and participant views
+    private boolean isResearcher = true;     //TODO Change this to switch between researcher and participant views
     private String username;
     private String user_id;
 
