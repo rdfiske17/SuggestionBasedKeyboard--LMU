@@ -8,6 +8,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -157,6 +158,7 @@ public class SuggestionModeKeyboardView extends LinearLayout {
                     phases.get(position-1).phaseConclusion();
                 }
                 phase.phaseSetup();
+                Log.i("SuggestionKeyboardView","Done setting up phase " + position);
                 phase.setVisibility(View.VISIBLE);
                 found = true;
                 mSuggestionModeHeaderText.setText(phaseText.get(position));

@@ -1,23 +1,40 @@
 package com.android.inputmethod.keyboard.suggestionmode;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.android.inputmethod.keyboard.KeyboardSwitcher;
 import com.android.inputmethod.latin.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class SuggestionModeKeyboardRelevantMessagesView extends SuggestionModePhase {
+
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private ToggleButton message1;
     private ToggleButton message2;
     private ToggleButton message3;
     private ToggleButton message4;
+
+    private boolean textUpdatedYet = false;
+    private ArrayList<String> relevantMessages = new ArrayList<String>();
 
 
     private ArrayList<ToggleButton> toggleButtons = new ArrayList<ToggleButton>();
@@ -76,6 +93,87 @@ public class SuggestionModeKeyboardRelevantMessagesView extends SuggestionModePh
     public void phaseSetup() {
         //TODO: Here is where the text message data will be pulled from the messaging application and injected into the text views
         //TODO: Make sure to set both TextOn and TextOff!!!
+
+        Toast toast = Toast.makeText(getContext(), "Please wait while messages are extracted", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+
+        getRecentMessages();
+
+        /*synchronized (this) {
+            while (!textUpdatedYet) {
+                try {
+                    Log.i("RelevantMessages", "waiting...");
+                    wait(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }*/
+        Log.i("RelevantMessages","Done setting-up");
+        textUpdatedYet = false;
+
+    }
+
+    private void getRecentMessages() {
+        ArrayList<String> recentMessagesRaw = new ArrayList<String>();
+
+        db.collection("messages")
+                .whereEqualTo("usedInKeyboard",true)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.i("RelevantMessages", "Raw Relevant Message: " + document.getData().toString());
+                                recentMessagesRaw.add(document.getData().toString());
+                            }
+                            Log.i("RelevantMessages","Done extracting");
+                            relevantMessages = cleanRecentMessages(recentMessagesRaw);
+                            setTextValues(relevantMessages);
+                            /*synchronized (this) {
+                                notify();
+                            }*/
+                        }
+                        else {
+                            Log.i("RelevantMessages","Error getting document: " + task.getException());
+                        }
+                        textUpdatedYet = true;
+                    }
+                });
+    }
+
+    private ArrayList<String> cleanRecentMessages(ArrayList<String> recentMessages) {
+        ArrayList<String> cleanedMessages = new ArrayList<String>();
+
+        Log.i("Relevant Messages","Beginning cleaning...");
+        int i = 0;
+        for(String message : recentMessages) {
+            String findIt = "MessageText=";
+            int index = message.indexOf(findIt);
+            cleanedMessages.add(message.substring(index+findIt.length(),message.length()-1));
+            i++;
+            Log.i("Relevant Messages","Cleaned Relevant Message for position " + i +": " + message.substring(index+findIt.length(),message.length()-1));
+        }
+        return cleanedMessages;
+    }
+
+    private void setTextValues(ArrayList<String> messages) {
+        Log.i("RelevantMessages","changing text...");
+        message1.setTextOn(messages.get(0));
+        message1.setTextOff(messages.get(0));
+        message2.setTextOn(messages.get(1));
+        message2.setTextOff(messages.get(1));
+        message3.setTextOn(messages.get(2));
+        message3.setTextOff(messages.get(2));
+        message4.setTextOn(messages.get(3));
+        message4.setTextOff(messages.get(3));
+        Log.i("RelevantMessages","Button 4 actual text: " + message4.getTextOn());
+        message1.toggle(); message1.toggle();
+        message2.toggle(); message2.toggle();
+        message3.toggle(); message3.toggle();
+        message4.toggle(); message4.toggle();
     }
 
     public void phaseConclusion() {

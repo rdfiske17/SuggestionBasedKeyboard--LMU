@@ -3,6 +3,7 @@ package com.android.inputmethod.keyboard.suggestionmode;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -74,7 +75,11 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
     }
 
     public void phaseSetup() {
-        Toast.makeText(getContext(), "Generating Responses...Thank you for your patience", Toast.LENGTH_SHORT).show();
+
+        Toast toast = Toast.makeText(getContext(), "Generating Responses...Thank you for your patience", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+
         int counter = 0;
         for(String string : SuggestionModeKeyboardView.finalRelevantMessages) {
             if(counter != 0) { finalRelevantMessages = finalRelevantMessages + " , \"" + string + "\""; }
