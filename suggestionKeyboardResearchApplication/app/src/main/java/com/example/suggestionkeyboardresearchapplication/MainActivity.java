@@ -26,7 +26,7 @@ import static java.util.Collections.singletonList;
 
 public final class MainActivity extends AppCompatActivity {
 
-    private boolean isResearcher = true;     //TODO Change this to switch between researcher and participant views
+    private boolean isResearcher = false;     //TODO Change this to switch between researcher and participant views
     private String username;
     private String user_id;
 
@@ -50,7 +50,7 @@ public final class MainActivity extends AppCompatActivity {
         );
 
         // Step 2 - Set up the client for API calls with the plugin for offline storage
-        ChatClient client = new ChatClient.Builder("dhedtn76bdvb", getApplicationContext())
+        ChatClient client = new ChatClient.Builder("8nvdrjakufky", getApplicationContext())
                 .withPlugin(streamOfflinePluginFactory)
                 .logLevel(ChatLogLevel.ALL) // Set to NOTHING in prod
                 .build();
