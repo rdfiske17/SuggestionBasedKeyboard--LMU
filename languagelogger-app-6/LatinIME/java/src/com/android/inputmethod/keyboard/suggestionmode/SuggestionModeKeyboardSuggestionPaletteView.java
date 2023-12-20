@@ -116,7 +116,7 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
 
         JSONObject jsonBody = new JSONObject();
         try {
-            jsonBody.put("model", "text-davinci-003");
+            jsonBody.put("model", "gpt-3.5-turbo-instruct");
             jsonBody.put("prompt",query);
             jsonBody.put("max_tokens",500);
             jsonBody.put("temperature",0);
@@ -128,9 +128,12 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
         RequestBody body = RequestBody.create(jsonBody.toString(),JSON);
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/completions")
-                .header("Authorization", OPENAPI_KEY)
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Authorization", "Bearer " + OPENAPI_KEY)
                 .post(body)
                 .build();
+
+        Log.i("SuggestionPalette","Request String: " + request.toString());
 
         client.newCall(request).enqueue(new Callback() {
 
@@ -167,12 +170,12 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
         //TODO
         Log.i("SuggestionPalette",results);
         //text1.setText(results);
-        String prefix = "1.";
+        String prefix = "1)";
 
         int startIndex = results.indexOf(prefix);
 
         for (int i = 0; i < 4; i++) {
-            int nextPrefixIndex = results.indexOf((i + 2) + ".", startIndex + 1);
+            int nextPrefixIndex = results.indexOf((i + 2) + ")", startIndex + 1);
             if (nextPrefixIndex == -1) {
                 nextPrefixIndex = results.length();
             }
