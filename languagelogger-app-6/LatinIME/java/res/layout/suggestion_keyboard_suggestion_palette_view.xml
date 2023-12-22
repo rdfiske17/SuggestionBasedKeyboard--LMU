@@ -6,11 +6,11 @@
     android:layout_gravity="bottom"
     android:orientation="vertical" >
 
-    <TextView
+    <!--TextView
         android:id="@+id/suggested_messages_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Suggested Message Query: " />
+        android:text="Suggested Message Query: " /-->
 
     <Button
         android:id="@+id/suggested_messages_message1_button"

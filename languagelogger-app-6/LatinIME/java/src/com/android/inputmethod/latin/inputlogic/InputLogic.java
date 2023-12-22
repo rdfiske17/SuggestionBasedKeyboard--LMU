@@ -92,7 +92,7 @@ public final class InputLogic {
     public LastComposedWord mLastComposedWord = LastComposedWord.NOT_A_COMPOSED_WORD;
     // This has package visibility so it can be accessed from InputLogicHandler.
     /* package */ final WordComposer mWordComposer;
-    public final RichInputConnection mConnection;
+    public static RichInputConnection mConnection; // made public and static to make the suggestion sender able to upload
     private final RecapitalizeStatus mRecapitalizeStatus = new RecapitalizeStatus();
 
     private int mDeleteCount;

@@ -115,7 +115,7 @@ public final class RichInputConnection implements PrivateCommandPerformer {
      * This contains the committed text immediately preceding the cursor and the composing
      * text, if any. It is refreshed when the cursor moves by calling upon the TextView.
      */
-    private final StringBuilder mCommittedTextBeforeComposingText = new StringBuilder();
+    public static final StringBuilder mCommittedTextBeforeComposingText = new StringBuilder(); // made static to access from a static context in SuggestionModeSender for clearing the compose line before committing a selection
     /**
      * This contains the currently composing text, as LatinIME thinks the TextView is seeing it.
      */

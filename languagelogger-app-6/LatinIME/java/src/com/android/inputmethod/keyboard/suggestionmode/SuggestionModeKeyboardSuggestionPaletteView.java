@@ -1,11 +1,21 @@
 package com.android.inputmethod.keyboard.suggestionmode;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.CompletionInfo;
+import android.view.inputmethod.CorrectionInfo;
+import android.view.inputmethod.ExtractedText;
+import android.view.inputmethod.ExtractedTextRequest;
+import android.view.inputmethod.InputConnection;
+import android.view.inputmethod.InputContentInfo;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +24,7 @@ import android.app.Activity;
 import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
 import com.android.inputmethod.latin.LatinIME;
 import com.android.inputmethod.latin.R;
+import com.android.inputmethod.latin.RichInputConnection;
 import com.android.inputmethod.latin.common.Constants;
 
 import org.jetbrains.annotations.NotNull;
@@ -43,7 +54,7 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
     private String OPENAPI_KEY = getResources().getString(R.string.OpenAPI_Key);
 
     private String finalRelevantMessages = "";
-    private TextView text1;
+    //private TextView text1;
     private Button suggestedMessage1Button;
     private Button suggestedMessage2Button;
     private Button suggestedMessage3Button;
@@ -51,6 +62,7 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
     private String[] suggestedMessages = new String[4];
     private boolean suggestedMessagesLoaded = false;
     private String recentQueryText;
+    private SuggestionModeSuggestionSender suggestionModeSuggestionSender;
 
 
     public SuggestionModeKeyboardSuggestionPaletteView(Context context, AttributeSet attrs) {
@@ -63,7 +75,7 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
         final LayoutInflater inflater = LayoutInflater.from(context);
         inflater.inflate(R.layout.suggestion_keyboard_suggestion_palette_view, this);
 
-        text1 = findViewById(R.id.suggested_messages_text);
+        //text1 = findViewById(R.id.suggested_messages_text);
         suggestedMessage1Button = findViewById(R.id.suggested_messages_message1_button);
         suggestedMessage1Button.setOnClickListener(this);
         suggestedMessage2Button = findViewById(R.id.suggested_messages_message2_button);
@@ -72,6 +84,7 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
         suggestedMessage3Button.setOnClickListener(this);
         suggestedMessage4Button = findViewById(R.id.suggested_messages_message4_button);
         suggestedMessage4Button.setOnClickListener(this);
+        suggestionModeSuggestionSender = new SuggestionModeSuggestionSender("");
     }
 
     public void phaseSetup() {
@@ -86,13 +99,14 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
             else { finalRelevantMessages = "\"" + string + "\""; }
             counter++;
         }
-        text1.setText("Final Relevant Messages: " + finalRelevantMessages + " \n" + "Final Keywords: " + SuggestionModeKeyboardView.finalKeywords + "\n" + "Final Relevant Tone: " + SuggestionModeKeyboardView.finalTone);
+        //text1.setText("Final Relevant Messages: " + finalRelevantMessages + " \n" + "Final Keywords: " + SuggestionModeKeyboardView.finalKeywords + "\n" + "Final Relevant Tone: " + SuggestionModeKeyboardView.finalTone);
         Log.i("SuggestionPalettes","Final Relevant Messages: " + finalRelevantMessages + " | Final Keywords: " + SuggestionModeKeyboardView.finalKeywords + " | Final Relevant Tone: " + SuggestionModeKeyboardView.finalTone);
 
         String query = "Create 4 text message responses to these relevant messages: " + finalRelevantMessages + ". The responses tone should be " + SuggestionModeKeyboardView.finalTone + ". Incorporate these keywords into the idea of the message: " + SuggestionModeKeyboardView.finalKeywords;
         recentQueryText = query;
 
-        callApi(query);
+        /*callApi(query);
+
         //int i = 0;
         while(!suggestedMessagesLoaded) {
             //Log.i("SuggestionPalette", "Number of times waited " + i);
@@ -104,7 +118,7 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
                 }
             }
             //i++;
-        }
+        }*/
         Log.i("SuggestionPalettee", "" + suggestedMessagesLoaded);
         Log.i("SuggestionPalette","Configuring suggested messages into views");
         addMessages(suggestedMessages);
@@ -195,7 +209,12 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
         suggestedMessage2Button.setText(messages[1]);
         suggestedMessage3Button.setText(messages[2]);
         suggestedMessage4Button.setText(messages[3]);
-        text1.setText("Suggested Message Query: " + recentQueryText);
+        //text1.setText("Suggested Message Query: " + recentQueryText);
+
+        suggestedMessage1Button.setText("Test Message 1");
+        suggestedMessage2Button.setText("Test Message 2");
+        suggestedMessage3Button.setText("Test Message 3");
+        suggestedMessage4Button.setText("Test Message 4");
     }
 
     public void onClick(final View view) {
@@ -205,5 +224,7 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
         AudioAndHapticFeedbackManager.getInstance().performHapticAndAudioFeedback(
                 Constants.CODE_UNSPECIFIED, this);
         //TODO: make the buttons do something!
+        suggestionModeSuggestionSender.setText((String) pressedButton.getText());
+        suggestionModeSuggestionSender.postText();
     }
 }

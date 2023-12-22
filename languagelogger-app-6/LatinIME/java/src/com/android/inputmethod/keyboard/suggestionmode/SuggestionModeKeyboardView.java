@@ -42,7 +42,8 @@ public class SuggestionModeKeyboardView extends LinearLayout {
     private TextView mSuggestionModeHeaderText;
 
     private int currentPhase;
-    private final int noMorePagesInt = -1;
+    private final int noMorePagesLowInt = -1;
+    private final int noMorePagesHighInt = 4;
     private final int mRelevantMessagesViewInt = 0;
     private final int mKeywordsViewInt = 1;
     private final int mToneViewInt = 2;
@@ -122,13 +123,21 @@ public class SuggestionModeKeyboardView extends LinearLayout {
 
     public void updateSuggestionGenerationPhase(int direction) {
         currentPhase = currentPhase + direction;
-        if(currentPhase < noMorePagesInt || currentPhase > mSuggetionPaletteViewInt) {
-            currentPhase = noMorePagesInt;
+        /*if(currentPhase < noMorePagesLowInt) {
+            currentPhase = noMorePagesLowInt;
         }
+        else if(currentPhase > noMorePagesHighInt) {
+            currentPhase = noMorePagesHighInt;
+        }*/
         //Log.i("SuggestionKeyboardView","phaseToUpdate: " + currentPhase);
-        if (currentPhase == noMorePagesInt) {
+        if (currentPhase == noMorePagesLowInt) {
             stopSuggestionGenerationSequence();
-            mSuggestionModeHeaderText.setText("TODO: go back to Alphabet Keyboard");
+            //mSuggestionModeHeaderText.setText("TODO: go back to Alphabet Keyboard");
+            mKeyboardSwitcher.setAlphabetKeyboard();
+        }
+        else if (currentPhase == noMorePagesHighInt) {
+            stopSuggestionGenerationSequence();
+            //mSuggestionModeHeaderText.setText("TODO: go back to Alphabet Keyboard");
             mKeyboardSwitcher.setAlphabetKeyboard();
         }
         else if (currentPhase == mRelevantMessagesViewInt) {
