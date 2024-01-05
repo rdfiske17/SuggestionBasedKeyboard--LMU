@@ -28,6 +28,10 @@ public class SuggestionModePhase extends LinearLayout implements View.OnClickLis
 
     }
 
+    public void suggestionProcessConclusion() {
+
+    }
+
     @Override
     public void onClick(View view) {
 

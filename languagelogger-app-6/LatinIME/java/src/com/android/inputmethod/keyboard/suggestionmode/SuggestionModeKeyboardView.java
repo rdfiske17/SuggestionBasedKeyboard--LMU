@@ -58,7 +58,7 @@ public class SuggestionModeKeyboardView extends LinearLayout {
     private KeyboardSwitcher mKeyboardSwitcher = LatinIME.mKeyboardSwitcher;
     private MainKeyboardView mMainKeyboardView;
 
-    public static ArrayList<String> finalRelevantMessages = new ArrayList<String>();
+    public static String finalRelevantMessages = "";
     public static String finalTone = "";
     public static String finalKeywords = "";
 
@@ -119,6 +119,10 @@ public class SuggestionModeKeyboardView extends LinearLayout {
 
     public void stopSuggestionGenerationSequence() {
         hideAllSuggestionPhases();
+        mRelevantMessagesView.suggestionProcessConclusion();
+        mKeywordsView.suggestionProcessConclusion();
+        mToneView.suggestionProcessConclusion();
+        mSuggestionPaletteView.suggestionProcessConclusion();
     }
 
     public void updateSuggestionGenerationPhase(int direction) {

@@ -136,6 +136,13 @@ public class SuggestionModeKeyboardKeywordsView extends SuggestionModePhase impl
         SuggestionModeKeyboardView.finalKeywords = (String)textContainer.getText();
     }
 
+    public void suggestionProcessConclusion() {
+        if(caps != true) {
+            changeCaps();
+        }
+        textContainer.setText("");
+    }
+
     /*private void onClickButton(final View view) {
         if (view.getId() == R.id.SPACE) { onSpace(); }
         else if(view.getId() == R.id.CAPS) { changeCaps(); }

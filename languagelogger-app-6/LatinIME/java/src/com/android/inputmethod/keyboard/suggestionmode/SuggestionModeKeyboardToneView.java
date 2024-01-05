@@ -192,4 +192,9 @@ public class SuggestionModeKeyboardToneView extends SuggestionModePhase {
     public void phaseConclusion() {
         SuggestionModeKeyboardView.finalTone = toneText;
     }
+
+    public void suggestionProcessConclusion() {
+        setToggleButton(null);
+        toneText = "";
+    }
 }

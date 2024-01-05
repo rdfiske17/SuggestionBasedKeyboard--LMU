@@ -1,30 +1,16 @@
 package com.android.inputmethod.keyboard.suggestionmode;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.inputmethod.CompletionInfo;
-import android.view.inputmethod.CorrectionInfo;
-import android.view.inputmethod.ExtractedText;
-import android.view.inputmethod.ExtractedTextRequest;
-import android.view.inputmethod.InputConnection;
-import android.view.inputmethod.InputContentInfo;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.app.Activity;
 
 import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
-import com.android.inputmethod.latin.LatinIME;
 import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.RichInputConnection;
 import com.android.inputmethod.latin.common.Constants;
 
 import org.jetbrains.annotations.NotNull;
@@ -33,9 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-import de.lmu.ifi.researchime.module.BuildConfig;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
@@ -53,7 +37,7 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
 
     private String OPENAPI_KEY = getResources().getString(R.string.OpenAPI_Key);
 
-    private String finalRelevantMessages = "";
+    //private String finalRelevantMessages = "";
     //private TextView text1;
     private Button suggestedMessage1Button;
     private Button suggestedMessage2Button;
@@ -93,16 +77,11 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
 
-        int counter = 0;
-        for(String string : SuggestionModeKeyboardView.finalRelevantMessages) {
-            if(counter != 0) { finalRelevantMessages = finalRelevantMessages + " , \"" + string + "\""; }
-            else { finalRelevantMessages = "\"" + string + "\""; }
-            counter++;
-        }
-        //text1.setText("Final Relevant Messages: " + finalRelevantMessages + " \n" + "Final Keywords: " + SuggestionModeKeyboardView.finalKeywords + "\n" + "Final Relevant Tone: " + SuggestionModeKeyboardView.finalTone);
-        Log.i("SuggestionPalettes","Final Relevant Messages: " + finalRelevantMessages + " | Final Keywords: " + SuggestionModeKeyboardView.finalKeywords + " | Final Relevant Tone: " + SuggestionModeKeyboardView.finalTone);
 
-        String query = "Create 4 text message responses to these relevant messages: " + finalRelevantMessages + ". The responses tone should be " + SuggestionModeKeyboardView.finalTone + ". Incorporate these keywords into the idea of the message: " + SuggestionModeKeyboardView.finalKeywords;
+        //text1.setText("Final Relevant Messages: " + finalRelevantMessages + " \n" + "Final Keywords: " + SuggestionModeKeyboardView.finalKeywords + "\n" + "Final Relevant Tone: " + SuggestionModeKeyboardView.finalTone);
+        Log.i("SuggestionPalettes","Final Relevant Messages: " + SuggestionModeKeyboardView.finalRelevantMessages + " | Final Keywords: " + SuggestionModeKeyboardView.finalKeywords + " | Final Relevant Tone: " + SuggestionModeKeyboardView.finalTone);
+
+        String query = "Create 4 text message responses to these relevant messages: " + SuggestionModeKeyboardView.finalRelevantMessages + ". The responses tone should be " + SuggestionModeKeyboardView.finalTone + ". Incorporate these keywords into the idea of the message: " + SuggestionModeKeyboardView.finalKeywords;
         recentQueryText = query;
 
         /*callApi(query);

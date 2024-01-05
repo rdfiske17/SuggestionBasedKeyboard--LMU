@@ -39,6 +39,8 @@ public class SuggestionModeKeyboardRelevantMessagesView extends SuggestionModePh
 
     private ArrayList<String> relevantMessagesText = new ArrayList<String>();
 
+    private String finalRelevantMessages = "";
+
     private SuggestionModeKeyboardView mSuggestionModeKeyboardView = KeyboardSwitcher.mSuggestionPagesView;
 
     public SuggestionModeKeyboardRelevantMessagesView(Context context, AttributeSet attrs) {
@@ -172,7 +174,28 @@ public class SuggestionModeKeyboardRelevantMessagesView extends SuggestionModePh
     }
 
     public void phaseConclusion() {
-        SuggestionModeKeyboardView.finalRelevantMessages = relevantMessagesText;
+        finalRelevantMessages = "";
+        int counter = 0;
+        for(String string : relevantMessagesText) {
+            if(counter != 0) { finalRelevantMessages = finalRelevantMessages + " , \"" + string + "\""; }
+            else { finalRelevantMessages = "\"" + string + "\""; }
+            counter++;
+        }
+
+        SuggestionModeKeyboardView.finalRelevantMessages = finalRelevantMessages;
+    }
+
+    public void suggestionProcessConclusion() {
+        for(ToggleButton button : toggleButtons) {
+            if(button.isChecked()) {
+                Log.i("Relevant Messages","Trying to remove \"" + (String)button.getTextOn() + "\".");
+                button.setChecked(false);
+            }
+            button.setTextOn("");
+            button.setTextOff("");
+            button.toggle(); button.toggle();
+        }
+        relevantMessagesText = new ArrayList<String>();
     }
 
     public void addOrRemoveStringToArrayList(String textToAdd) {
