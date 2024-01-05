@@ -84,7 +84,7 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
         String query = "Create 4 text message responses to these relevant messages: " + SuggestionModeKeyboardView.finalRelevantMessages + ". The responses tone should be " + SuggestionModeKeyboardView.finalTone + ". Incorporate these keywords into the idea of the message: " + SuggestionModeKeyboardView.finalKeywords;
         recentQueryText = query;
 
-        /*callApi(query);
+        callApi(query);
 
         //int i = 0;
         while(!suggestedMessagesLoaded) {
@@ -97,7 +97,7 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
                 }
             }
             //i++;
-        }*/
+        }
         Log.i("SuggestionPalettee", "" + suggestedMessagesLoaded);
         Log.i("SuggestionPalette","Configuring suggested messages into views");
         addMessages(suggestedMessages);
@@ -190,10 +190,10 @@ public class SuggestionModeKeyboardSuggestionPaletteView extends SuggestionModeP
         suggestedMessage4Button.setText(messages[3]);
         //text1.setText("Suggested Message Query: " + recentQueryText);
 
-        suggestedMessage1Button.setText("Test Message 1");
+        /*suggestedMessage1Button.setText("Test Message 1");
         suggestedMessage2Button.setText("Test Message 2");
         suggestedMessage3Button.setText("Test Message 3");
-        suggestedMessage4Button.setText("Test Message 4");
+        suggestedMessage4Button.setText("Test Message 4");*/
     }
 
     public void onClick(final View view) {
