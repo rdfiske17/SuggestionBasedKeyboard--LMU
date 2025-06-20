@@ -1,6 +1,24 @@
-SuggestionBasedKeyboard README
+# SuggestionBasedKeyboard--LMU
 
-A quick guide to understanding the applications and the necessary configuration settings to get it to run:
+The Suggestion Based Keyboard Software Project is the culmination of my work in HCI as a DAAD RISE Germany intern at LMU Munich during the Summer of 2023. Below is a purpose statement for the application and some instructions on how to run the project.
+
+Date: Summer 2023
+
+Member: Riley Fiske
+
+## Purpose
+
+The Sugggestion Based Keyboard serves the purpose of providing an alternative use or extension on the "suggested/predicted words" bar at the top of a mobile keyboard and utilize LLMs to generate whole message suggestions given different contexts. The contexts used for this study were relevant/previous messages, keywords, and tone. Four suggested messages are then generated which can populate the compose line and allow further customization by the user.
+
+![Relevant Messages Screenshot](.readme_images/relevantmessages.png)
+
+![Keywords Screenshot](.readme_images/keywords.png)
+
+![Tone Screenshot](.readme_images/tone.png)
+
+![Generated Suggestions Screenshot](.readme_images/generatedsuggestions.png)
+
+## Instructions
 
 1) languagelogger-app-6 is the keyboard application and when launched, will boot up the Research-IME Homepage to configure your keyboard. This does nothing but has not yet been removed.
 
