@@ -10,13 +10,13 @@ Member: Riley Fiske
 
 The Sugggestion Based Keyboard serves the purpose of providing an alternative use or extension on the "suggested/predicted words" bar at the top of a mobile keyboard and utilize LLMs to generate whole message suggestions given different contexts. The contexts used for this study were relevant/previous messages, keywords, and tone. Four suggested messages are then generated which can populate the compose line and allow further customization by the user.
 
-![Relevant Messages Screenshot](.readme_images/relevantmessages.png)
+![Relevant Messages Screenshot](./readme_images/relevantmessages.png)
 
-![Keywords Screenshot](.readme_images/keywords.png)
+![Keywords Screenshot](./readme_images/keywords.png)
 
-![Tone Screenshot](.readme_images/tone.png)
+![Tone Screenshot](./readme_images/tone.png)
 
-![Generated Suggestions Screenshot](.readme_images/generatedsuggestions.png)
+![Generated Suggestions Screenshot](./readme_images/generatedsuggestions.png)
 
 ## Instructions
 
