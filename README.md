@@ -34,7 +34,3 @@ The Sugggestion Based Keyboard serves the purpose of providing an alternative us
  - Gradle JDK: 1.8
 
 6) When launching the keyboard application, first build it, it will throw some errors, clean the project, then build the project once again and it should work!
-
- Message me if I seem to be forgetting anything!
-
- -Riley
